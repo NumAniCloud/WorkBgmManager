@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="WorkingBgmManager.BgmForWorkWindowControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             Background="{DynamicResource VsBrush.Window}"
+             Foreground="{DynamicResource VsBrush.WindowText}"
+             mc:Ignorable="d"
+             d:DesignHeight="200" d:DesignWidth="350"
+             Name="MyToolWindow">
+	<Grid Margin="4" Width="320" HorizontalAlignment="Left">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
+		</Grid.RowDefinitions>
+
+		<TextBlock Text="{Binding FileName.Value}" Margin="0,0,6,0"/>
+		<Button Content="Browse..." Command="{Binding LoadCommand}" Grid.Row="1"/>
+
+		<Grid Grid.Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+			</Grid.ColumnDefinitions>
+
+			<Button Content="Play" Grid.Column="0" Command="{Binding PlayCommand}" Margin="4"/>
+			<Button Content="PlayLooping" Grid.Column="1" Command="{Binding LoopingPlayCommand}" Margin="4"/>
+			<Button Content="Pause" Grid.Column="2" Command="{Binding PauseCommand}" Margin="4"/>
+			<Button Content="Resume" Grid.Column="3" Command="{Binding ResumeCommand}" Margin="4"/>
+		</Grid>
+
+		<Grid Grid.Row="3">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="1*"/>
+			</Grid.ColumnDefinitions>
+			<Label Content="Volume:"/>
+			<Slider Grid.Column="1" Margin="4" Value="{Binding Volume.Value}" Minimum="0" Maximum="1"/>
+		</Grid>
+
+		<Grid Grid.Row="4" Margin="4">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="auto"/>
+			</Grid.ColumnDefinitions>
+
+			<CheckBox Grid.Row="0" IsChecked="{Binding DoFadeInOut.Value}"/>
+
+			<TextBlock Text="FadeIn/Out on modes changing" Grid.Row="0" Grid.Column="1"/>
+		</Grid>
+	</Grid>
+</UserControl>
