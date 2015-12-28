@@ -17,7 +17,7 @@
 			<RowDefinition Height="auto"/>
 		</Grid.RowDefinitions>
 
-		<TextBlock Text="{Binding FileName.Value}" Margin="0,0,6,0"/>
+		<TextBlock Text="{Binding FileName.Value}" Margin="4"/>
 		<Button Content="Browse..." Command="{Binding LoadCommand}" Grid.Row="1"/>
 
 		<Grid Grid.Row="2">
@@ -25,13 +25,11 @@
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="1*"/>
-				<ColumnDefinition Width="1*"/>
 			</Grid.ColumnDefinitions>
 
 			<Button Content="Play" Grid.Column="0" Command="{Binding PlayCommand}" Margin="4"/>
-			<Button Content="PlayLooping" Grid.Column="1" Command="{Binding LoopingPlayCommand}" Margin="4"/>
-			<Button Content="Pause" Grid.Column="2" Command="{Binding PauseCommand}" Margin="4"/>
-			<Button Content="Resume" Grid.Column="3" Command="{Binding ResumeCommand}" Margin="4"/>
+			<Button Content="Pause" Grid.Column="1" Command="{Binding PauseCommand}" Margin="4"/>
+			<Button Content="Resume" Grid.Column="2" Command="{Binding ResumeCommand}" Margin="4"/>
 		</Grid>
 
 		<Grid Grid.Row="3">
@@ -48,10 +46,16 @@
 				<ColumnDefinition Width="auto"/>
 				<ColumnDefinition Width="auto"/>
 			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="auto"/>
+				<RowDefinition Height="auto"/>
+			</Grid.RowDefinitions>
 
-			<CheckBox Grid.Row="0" IsChecked="{Binding DoFadeInOut.Value}"/>
+			<CheckBox Grid.Row="0" IsChecked="{Binding DoLoop.Value}"/>
+			<TextBlock Text="Loop" Grid.Row="0" Grid.Column="1"/>
 
-			<TextBlock Text="FadeIn/Out on modes changing" Grid.Row="0" Grid.Column="1"/>
+			<CheckBox Grid.Row="1" IsChecked="{Binding DoFadeInOut.Value}"/>
+			<TextBlock Text="FadeIn/Out on modes changing" Grid.Row="1" Grid.Column="1"/>
 		</Grid>
 	</Grid>
 </UserControl>
